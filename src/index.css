@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 20% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 15% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 15% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 100% 60%;
+    --primary-foreground: 240 20% 8%;
+
+    --secondary: 240 12% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 10% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 190 100% 60%;
+    --accent-foreground: 240 20% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 190 100% 60%;
+
+    --radius: 1rem;
+
+    --glass-bg: 240 15% 12%;
+    --glass-border: 240 20% 25%;
+    --neon-glow: 190 100% 60%;
+    --gradient-start: 240 20% 8%;
+    --gradient-end: 250 30% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+}
+
+@layer utilities {
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      hsla(var(--glass-bg), 0.7),
+      hsla(var(--glass-bg), 0.5)
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--glass-border), 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.1);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px hsla(var(--neon-glow), 0.5);
+  }
+
+  .neon-glow-hover:hover {
+    box-shadow: 0 0 30px hsla(var(--neon-glow), 0.7);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsla(var(--neon-glow), 0.8);
+  }
+}
